@@ -1,0 +1,154 @@
+<html lang="en">
+<head>
+  <title>Lab 3</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h1>Управління будинком</h1>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#Payment">Оплата квартир</a></li>
+    <li><a data-toggle="tab" href="#TypeOfServices">Тип послуг</a></li>
+    <li><a data-toggle="tab" href="#Apartment">Квартири</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="Payment" class="tab-pane fade in active">
+      <h3>Оплата</h3>
+      <table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Місяць, рік</th>
+				<th>Сума</th>
+				<th>Дата внесення</th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	  </table>
+    </div>
+    <div id="TypeOfServices" class="tab-pane fade">
+      <h3>Тип послуг</h3>
+      <p>(Тут мав би бути текст Мар'яна Слабіноги)</p>
+    </div>
+    <div id="Apartment" class="tab-pane fade">
+      <h3>Квартири</h3>
+      <p>(Тут мав би бути текст Мар'яна Слабіноги)</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="paymentModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="paymentModalLongTitle">Додати/Редагувати Конференцію</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form id="paymentForm">
+        <div class="modal-body">
+            <div class="mb-3">
+              <label for="paymentMonthInput" class="form-label">Який місяць і рік </label>
+              <input type="text" class="form-control" id="paymentMonthInput" required>
+            </div>
+            <div class="mb-3">
+              <label for="paymentSumInput" class="form-label">Яка Сума</label>
+              <input type="text" class="form-control" id="paymentSumInput" required>
+            </div>
+            <div class="mb-3">
+              <label for="paymentDateOfEntryInput" class="form-label">Види послуг</label>
+              <input type="text" class="form-control" id="paymentDateOfEntryInput" required>
+            </div>
+            <input type="hidden" id="paymentIdInput" value=""/>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="closePaymentModal" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
+          <button type="submit" class="btn btn-primary">Зберегти</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="typeOfServicesModal" tabindex="-1" role="dialog" aria-labelledby="typeOfServicesModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="typeOfServicesModalLongTitle">Додати/Редагувати вченого</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form id="typeOfServicesForm">
+        <div class="modal-body">
+            <div class="mb-3">
+              <label for="typeOfServicesNameInput" class="form-label">Назва послуг</label>
+              <input type="text" class="form-control" id="typeOfServicesNameInput" required>
+            </div>
+            <div class="mb-3">
+              <label for="typeOfServicesCounterInput" class="form-label">Чи є наявність лічильника</label>
+              <input type="text" class="form-control" id="typeOfServicesCounterInput" required>
+            </div>
+            <div class="mb-3">
+              <label for="typeOfServicesPricePerMonthInput" class="form-label">Ціна на 1 місяць</label>
+              <input type="text" class="form-control" id="typeOfServicesPricePerMonthInput" required>
+            </div>
+            <input type="hidden" id="typeOfServicesIdInput" value=""/>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="closeTypeOfServicesModal" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
+          <button type="submit" class="btn btn-primary">Зберегти</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="apartmentModal" tabindex="-1" role="dialog" aria-labelledby="apartmentModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="apartmentModalLongTitle">Додати/Редагувати вченого</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form id="apartmentForm">
+        <div class="modal-body">
+            <div class="mb-3">
+              <label for="apartmentApartNumberInput" class="form-label">Номер квартири</label>
+              <input type="text" class="form-control" id="apartmentApartNumberInput" required>
+            </div>
+            <div class="mb-3">
+              <label for="apartmentHouseNumberInput" class="form-label">Номер будинка</label>
+              <input type="text" class="form-control" id="apartmentHouseNumberInput" required>
+            </div>
+            <div class="mb-3">
+              <label for="apartmentStreetInput" class="form-label">Назва вулиці</label>
+              <input type="text" class="form-control" id="apartmentStreetInput" required>
+            </div>
+            <div class="mb-3">
+              <label for="apartmentOwnerInput" class="form-label">Ведіть Власника</label>
+              <input type="text" class="form-control" id="apartmentOwnerInput" required>
+            </div>
+            <input type="hidden" id="apartmentIdInput" value=""/>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="closeApartmentModal" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
+          <button type="submit" class="btn btn-primary">Зберегти</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="./main.js"></script>
+</body>
+</html>
